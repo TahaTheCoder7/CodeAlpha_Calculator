@@ -1,0 +1,177 @@
+/* ========================================
+1. DESIGN VARIABLES
+======================================== */
+:root{
+--bg-gradient:linear-gradient(135deg,#1c1c1e,#000000);
+--calc-bg:#1c1c1e;
+--display-text:#ffffff;
+
+--btn-num:#333333;
+--btn-num-hover:#48484a;
+--btn-accent:#ff9f0a;
+--btn-accent-hover:#ffb340;
+--btn-func:#a5a5a5;
+--btn-func-hover:#d1d1d1;
+
+--gap:12px;
+--radius-round:50%;
+--radius-pill:40px;
+--shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* ========================================
+2. RESET
+======================================== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+/* ========================================
+3. BODY
+======================================== */
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+background:var(--bg-gradient);
+overflow:hidden;
+}
+
+/* ========================================
+4. CALCULATOR
+======================================== */
+.calculator{
+background-color:var(--calc-bg);
+padding:25px;
+border-radius:40px;
+box-shadow:var(--shadow);
+width:340px;
+}
+
+/* ========================================
+5. DISPLAY SCREEN
+======================================== */
+#display{
+width:100%;
+height:70px;
+padding:10px 20px;
+
+font-size:3.5rem;
+font-weight:300;
+color:var(--display-text);
+
+background:var(--calc-bg);
+
+border:2px solid #333;
+border-radius:15px;
+
+outline:none;
+text-align:right;
+
+margin-bottom:15px;
+
+transition:border 0.2s, box-shadow 0.2s;
+}
+
+/* Border changes when clicked */
+#display:focus{
+border:2px solid #ff9f0a;
+box-shadow:0 0 8px #ff9f0a,0 0 15px #ff9f0a;
+}
+
+/* ========================================
+6. BUTTON GRID
+======================================== */
+.buttons{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:var(--gap);
+}
+
+/* ========================================
+7. BUTTONS
+======================================== */
+button{
+height:70px;
+border:none;
+font-size:1.6rem;
+font-weight:500;
+cursor:pointer;
+transition:background-color 0.2s,transform 0.1s;
+}
+
+/* Number buttons */
+.button{
+background:var(--btn-num);
+color:white;
+border-radius:var(--radius-round);
+}
+
+.button:hover{
+background:var(--btn-num-hover);
+}
+
+/* Operators */
+.button-accent{
+background:var(--btn-accent);
+color:white;
+border-radius:var(--radius-round);
+}
+
+.button-accent:hover{
+background:var(--btn-accent-hover);
+}
+
+/* Equal button */
+.button-equal{
+background:var(--btn-accent);
+color:white;
+border-radius:var(--radius-round);
+}
+
+.button-equal:hover{
+background:var(--btn-accent-hover);
+}
+
+/* Clear button */
+.button-clear{
+grid-column:span 4;
+background:var(--btn-func);
+color:black;
+border-radius:var(--radius-pill);
+margin-top:10px;
+}
+
+.button-clear:hover{
+background:var(--btn-func-hover);
+}
+
+/* Click effect */
+button:active{
+transform:scale(0.96);
+}
+
+/* ========================================
+8. RESPONSIVE SCALE
+======================================== */
+@media (max-width:400px){
+.calculator{
+transform:scale(0.9);
+}
+}
+
+@media (max-width:330px){
+.calculator{
+transform:scale(0.85);
+}
+}
+
+@media (max-width:260px){
+.calculator{
+transform:scale(0.8);
+}
+}
